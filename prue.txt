@@ -34,3 +34,4 @@ while i<3:
 	dato(empleado, consulta)
 	i=i+1
 
+#agregando linea extra
