@@ -33,3 +33,4 @@ while i<3:
 	dato(empleado, consulta)
 	i=i+1
 
+#Se agrega una lunea comentario
