@@ -1,0 +1,35 @@
+def descuentos(sueldo):
+	desc=sueldo-(sueldo*0.11)-(sueldo*0.03)-(sueldo*0.01)
+	return desc
+
+def dato(empleado, leg):
+	print "Legajo: ", leg
+	for legajo,datos in empleado.iteritems():
+		print "Nombre: ", empleado[legajo]['nombre']
+		print "Apellido: ",empleado[legajo]['apellido']
+		print "Fecha de nacimiento: ", empleado[legajo]['fecha_nac']
+		print "Sueldo bruto: ", empleado[legajo]['sueldo_bruto']
+		print "Sueldo neto: ", empleado[legajo]['sueldo_neto']
+
+empleado={}
+i=0
+salarios=0
+while i<3:
+	num_legajo=input("Ingrese su legajo: ")
+	nombre=str(raw_input("Nombre: "))
+	nombre=nombre.upper()
+	apellido=str(raw_input("Apellido: "))
+	apellido=apellido.upper()
+	fecha_nac=str(raw_input("Fecha de nacimiento(aaaa/mm/dd): "))
+	sueldo=input("Sueldo: ")
+	empleado.update({num_legajo:{'apellido':apellido,'nombre':nombre,'fecha_nac':fecha_nac,'sueldo_bruto':sueldo }})
+	for legajo,datos in empleado.iteritems():
+		sueldo=empleado[legajo]['sueldo_bruto']
+		desc=descuentos(sueldo)
+		empleado[legajo].update({'sueldo_neto': desc})
+		#print salarios, empleado[legajo]['sueldo_neto']
+	salarios=salarios+sueldo
+	consulta=str(raw_input("Ingrese un numero de legajo para saber sus datos "))
+	dato(empleado, consulta)
+	i=i+1
+
